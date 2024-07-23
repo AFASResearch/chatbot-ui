@@ -120,7 +120,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
 
   const handleSignOut = async () => {
     await supabase.auth.signOut()
-    router.push("/login")
+    router.push("/")
     router.refresh()
     return
   }
@@ -258,7 +258,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
       const usernameRegex = /^[a-zA-Z0-9_]+$/
       if (!usernameRegex.test(username)) {
         setUsernameAvailable(false)
-        toast.error(
+        alert(
           "Username must be letters, numbers, or underscores only - no other characters or spacing allowed."
         )
         return

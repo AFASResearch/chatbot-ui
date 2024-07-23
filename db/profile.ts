@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase/browser-client"
 import { TablesInsert, TablesUpdate } from "@/supabase/types"
+import { NextResponse } from "next/server"
 
 export const getProfileByUserId = async (userId: string) => {
   const { data: profile, error } = await supabase
@@ -9,6 +10,8 @@ export const getProfileByUserId = async (userId: string) => {
     .single()
 
   if (!profile) {
+    // if the user doesn't have a home workspace, session is invalid. Logout the user.
+    await supabase.auth.signOut()
     throw new Error(error.message)
   }
 
@@ -22,6 +25,8 @@ export const getProfilesByUserId = async (userId: string) => {
     .eq("user_id", userId)
 
   if (!profiles) {
+    // if the user doesn't have a home workspace, session is invalid. Logout the user.
+    await supabase.auth.signOut()
     throw new Error(error.message)
   }
 

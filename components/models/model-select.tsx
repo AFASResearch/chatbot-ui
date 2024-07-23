@@ -90,43 +90,6 @@ export const ModelSelect: FC<ModelSelectProps> = ({
         setSearch("")
       }}
     >
-      <DropdownMenuTrigger
-        className="bg-background w-full justify-start border-2 px-3 py-5"
-        asChild
-        disabled={allModels.length === 0}
-      >
-        {allModels.length === 0 ? (
-          <div className="rounded text-sm font-bold">
-            Unlock models by entering API keys in your profile settings.
-          </div>
-        ) : (
-          <Button
-            ref={triggerRef}
-            className="flex items-center justify-between"
-            variant="ghost"
-          >
-            <div className="flex items-center">
-              {selectedModel ? (
-                <>
-                  <ModelIcon
-                    provider={selectedModel?.provider}
-                    width={26}
-                    height={26}
-                  />
-                  <div className="ml-2 flex items-center">
-                    {selectedModel?.modelName}
-                  </div>
-                </>
-              ) : (
-                <div className="flex items-center">Select a model</div>
-              )}
-            </div>
-
-            <IconChevronDown />
-          </Button>
-        )}
-      </DropdownMenuTrigger>
-
       <DropdownMenuContent
         className="space-y-2 overflow-auto p-2"
         style={{ width: triggerRef.current?.offsetWidth }}

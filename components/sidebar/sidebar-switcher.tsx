@@ -46,12 +46,6 @@ export const SidebarSwitcher: FC<SidebarSwitcherProps> = ({
         />
 
         <SidebarSwitchItem
-          icon={<IconSparkles size={SIDEBAR_ICON_SIZE} />}
-          contentType="models"
-          onContentTypeChange={onContentTypeChange}
-        />
-
-        <SidebarSwitchItem
           icon={<IconFile size={SIDEBAR_ICON_SIZE} />}
           contentType="files"
           onContentTypeChange={onContentTypeChange}

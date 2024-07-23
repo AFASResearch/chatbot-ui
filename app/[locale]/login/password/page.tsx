@@ -15,7 +15,7 @@ export default function ChangePasswordPage() {
       const session = (await supabase.auth.getSession()).data.session
 
       if (!session) {
-        router.push("/login")
+        router.push("/")
       } else {
         setLoading(false)
       }

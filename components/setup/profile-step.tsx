@@ -12,7 +12,6 @@ import {
 } from "@tabler/icons-react"
 import { FC, useCallback, useState } from "react"
 import { LimitDisplay } from "../ui/limit-display"
-import { toast } from "sonner"
 
 interface ProfileStepProps {
   username: string
@@ -64,7 +63,7 @@ export const ProfileStep: FC<ProfileStepProps> = ({
       const usernameRegex = /^[a-zA-Z0-9_]+$/
       if (!usernameRegex.test(username)) {
         onUsernameAvailableChange(false)
-        toast.error(
+        alert(
           "Username must be letters, numbers, or underscores only - no other characters or spacing allowed."
         )
         return

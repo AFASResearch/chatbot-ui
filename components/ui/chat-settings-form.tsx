@@ -221,7 +221,7 @@ const AdvancedContent: FC<AdvancedContentProps> = ({
         )}
       </div>
 
-      <div className="mt-5">
+      <div className="mt-5 hidden">
         <Label>Embeddings Provider</Label>
 
         <Select

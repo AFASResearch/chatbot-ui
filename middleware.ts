@@ -23,7 +23,9 @@ export async function middleware(request: NextRequest) {
         .single()
 
       if (!homeWorkspace) {
-        throw new Error(error?.message)
+        // if the user doesn't have a home workspace, session is invalid. Logout the user.
+        await supabase.auth.signOut();
+        return NextResponse.redirect(new URL("/", request.url));
       }
 
       return NextResponse.redirect(
